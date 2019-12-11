@@ -38,7 +38,7 @@ function selectTxs(unspentTransactions, amount, fee) {
         if (findTotal.greaterThanOrEqualTo(value)) break
     }
     if (value.greaterThan(findTotal)) {
-        throw new Error('You do not have enough QTUM to send')
+        throw new Error('You do not have enough LOC to send')
     }
     return find
 }

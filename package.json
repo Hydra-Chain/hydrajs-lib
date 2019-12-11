@@ -1,24 +1,20 @@
 {
-  "name": "qtumjs-lib",
-  "version": "0.0.8",
-  "description": "An extend lib for bitcoinjs-lib, it supports two new network of qtum and qtum-testnet, and it can generate contract creating and sending transactions",
+  "name": "locjs-lib",
+  "version": "0.0.1",
+  "description": "An extend lib for bitcoinjs-lib, it supports two new network of locktrip and locktrip-testnet, and it can generate contract creating and sending transactions",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qtumproject/qtumjs-lib.git"
+    "url": "git+https://github.com/LockTrip/Blockchain.git"
   },
   "keywords": [
-    "qtum",
-    "qtumjs",
+    "locktrip",
+    "locjs",
     "smart contract",
     "bitcoin"
   ],
-  "author": "Qtum Weiyu",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/qtumproject/qtumjs-lib/issues"
-  },
-  "homepage": "https://github.com/qtumproject/qtumjs-lib#readme",
+  "homepage": "https://github.com/LockTrip/Blockchain#readme",
   "devDependencies": {},
   "dependencies": {
     "bignumber.js": "^4.1.0",
