@@ -4,12 +4,12 @@ var OPS = require('locktrip-opcodes')
 var Buffer = require('safe-buffer').Buffer
 
 /**
- * This is a function for selecting LOC utxos to build transactions
- * the transaction object takes at least 3 fields, value(unit is 1e-8 LOC) , confirmations and isStake
+ * This is a function for selecting HYDRA utxos to build transactions
+ * the transaction object takes at least 3 fields, value(unit is 1e-8 HYDRA) , confirmations and isStake
  *
  * @param [transaction] unspentTransactions
- * @param Number amount(unit: LOC)
- * @param Number fee(unit: LOC)
+ * @param Number amount(unit: HYDRA)
+ * @param Number fee(unit: HYDRA)
  * @returns [transaction]
  */
 function selectTxs(unspentTransactions, amount, fee) {
@@ -38,19 +38,19 @@ function selectTxs(unspentTransactions, amount, fee) {
         if (findTotal.greaterThanOrEqualTo(value)) break
     }
     if (value.greaterThan(findTotal)) {
-        throw new Error('You do not have enough LOC to send')
+        throw new Error('You do not have enough HYDRA to send')
     }
     return find
 }
 
 /**
  * This is a helper function to build a pubkeyhash transaction
- * the transaction object takes at least 5 fields, value(unit is 1e-8 LOC), confirmations, isStake, hash and pos
+ * the transaction object takes at least 5 fields, value(unit is 1e-8 HYDRA), confirmations, isStake, hash and pos
  *
  * @param bitcoinjs-lib.KeyPair keyPair
  * @param String to
- * @param Number amount(unit: LOC)
- * @param Number fee(unit: LOC)
+ * @param Number amount(unit: HYDRA)
+ * @param Number fee(unit: HYDRA)
  * @param [transaction] utxoList
  * @returns String the built tx
  */
@@ -77,12 +77,12 @@ function buildPubKeyHashTransaction(keyPair, to, amount, fee, utxoList) {
 
 /**
  * This is a helper function to build a create-contract transaction
- * the transaction object takes at least 5 fields, value(unit is 1e-8 LOC), confirmations, isStake, hash and pos
+ * the transaction object takes at least 5 fields, value(unit is 1e-8 HYDRA), confirmations, isStake, hash and pos
  *
  * @param bitcoinjs-lib.KeyPair keyPair
  * @param String code The contract byte code
  * @param Number gasLimit
- * @param Number fee(unit: LOC)
+ * @param Number fee(unit: HYDRA)
  * @param [transaction] utxoList
  * @returns String the built tx
  */
@@ -118,13 +118,13 @@ function buildCreateContractTransaction(keyPair, code, gasLimit, fee, utxoList) 
 
 /**
  * This is a helper function to build a send-to-contract transaction
- * the transaction object takes at least 5 fields, value(unit is 1e-8 LOC), confirmations, isStake, hash and pos
+ * the transaction object takes at least 5 fields, value(unit is 1e-8 HYDRA), confirmations, isStake, hash and pos
  *
  * @param bitcoinjs-lib.KeyPair keyPair
  * @param String contractAddress The contract address
  * @param String encodedData The encoded abi data
  * @param Number gasLimit
- * @param Number fee(unit: LOC)
+ * @param Number fee(unit: HYDRA)
  * @param [transaction] utxoList
  * @returns String the built tx
  */
