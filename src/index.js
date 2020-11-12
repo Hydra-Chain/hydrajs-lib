@@ -1,7 +1,7 @@
-var locjs = require('bitcoinjs-lib')
+var hydrajs = require('bitcoinjs-lib')
 
-Object.assign(locjs.networks, require('./networks'))
+Object.assign(hydrajs.networks, require('./networks'))
 
-locjs.utils = require('./utils')
+hydrajs.utils = require('./utils')
 
-module.exports = locjs
+module.exports = hydrajs

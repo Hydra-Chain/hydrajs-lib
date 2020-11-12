@@ -1,6 +1,6 @@
 var bitcoinjs = require('bitcoinjs-lib')
 var BigNumber = require('bignumber.js')
-var OPS = require('locktrip-opcodes')
+var OPS = require('hydra-opcodes')
 var Buffer = require('safe-buffer').Buffer
 
 /**

@@ -1,5 +1,5 @@
 module.exports = {
-    locktrip: {
+    hydra: {
         messagePrefix: '\x15HYDRA Signed Message:\n',
         bech32: 'qc',
         bip32: {
@@ -10,7 +10,7 @@ module.exports = {
         scriptHash: 0x3f,
         wif: 0x80
     },
-    locktrip_testnet: {
+    hydra_testnet: {
         messagePrefix: '\x15HYDRA Signed Message:\n',
         bech32: 'tq',
         bip32: {
