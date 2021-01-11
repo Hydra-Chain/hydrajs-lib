@@ -102,7 +102,6 @@ function buildCreateContractTransaction(keyPair, code, gasLimit, fee, utxoList) 
     var contract =  bitcoinjs.script.compile([
         OPS.OP_4,
         number2Buffer(gasLimit),
-        number2Buffer(gasPrice),
         hex2Buffer(code),
         OPS.OP_CREATE
     ])
@@ -131,7 +130,7 @@ function buildCreateContractTransaction(keyPair, code, gasLimit, fee, utxoList) 
 function buildSendToContractTransaction(keyPair, contractAddress, encodedData, gasLimit, fee, utxoList) {
     var from = keyPair.getAddress()
     var amount = 0
-    var gasPrice = 800 //satoshi TODO: use oracle
+    var gasPrice = 1250 //satoshi TODO: use oracle
     fee = new BigNumber(gasLimit).times(gasPrice).div(1e8).add(fee).toNumber()
     var inputs = selectTxs(utxoList, amount, fee)
     var tx = new bitcoinjs.TransactionBuilder(keyPair.network)
@@ -144,7 +143,6 @@ function buildSendToContractTransaction(keyPair, contractAddress, encodedData, g
     var contract =  bitcoinjs.script.compile([
         OPS.OP_4,
         number2Buffer(gasLimit),
-        number2Buffer(gasPrice),
         hex2Buffer(encodedData),
         hex2Buffer(contractAddress),
         OPS.OP_CALL

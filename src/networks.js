@@ -1,7 +1,7 @@
 module.exports = {
     hydra: {
         messagePrefix: '\x15HYDRA Signed Message:\n',
-        bech32: 'qc',
+        bech32: 'hc',
         bip32: {
             public: 0x0488b21e,
             private: 0x0488ade4
@@ -12,7 +12,7 @@ module.exports = {
     },
     hydra_testnet: {
         messagePrefix: '\x15HYDRA Signed Message:\n',
-        bech32: 'tq',
+        bech32: 'th',
         bip32: {
             public: 0x043587cf,
             private: 0x04358394
