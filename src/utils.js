@@ -89,7 +89,7 @@ function buildPubKeyHashTransaction(keyPair, to, amount, fee, utxoList) {
 function buildCreateContractTransaction(keyPair, code, gasLimit, fee, utxoList) {
     var from = keyPair.getAddress()
     var amount = 0
-    var gasPrice = 800 //satoshi TODO: use oracle
+    var gasPrice = 1250 //satoshi TODO: use oracle
     fee = new BigNumber(gasLimit).times(gasPrice).div(1e8).add(fee).toNumber()
     var inputs = selectTxs(utxoList, amount, fee)
     var tx = new bitcoinjs.TransactionBuilder(keyPair.network)
