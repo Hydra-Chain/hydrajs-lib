@@ -86,10 +86,9 @@ function buildPubKeyHashTransaction(keyPair, to, amount, fee, utxoList) {
  * @param [transaction] utxoList
  * @returns String the built tx
  */
-function buildCreateContractTransaction(keyPair, code, gasLimit, fee, utxoList) {
+function buildCreateContractTransaction(keyPair, code, gasLimit, gasPrice, fee, utxoList) {
     var from = keyPair.getAddress()
     var amount = 0
-    var gasPrice = 1250 //satoshi TODO: use oracle
     fee = new BigNumber(gasLimit).times(gasPrice).div(1e8).add(fee).toNumber()
     var inputs = selectTxs(utxoList, amount, fee)
     var tx = new bitcoinjs.TransactionBuilder(keyPair.network)
@@ -127,10 +126,9 @@ function buildCreateContractTransaction(keyPair, code, gasLimit, fee, utxoList) 
  * @param [transaction] utxoList
  * @returns String the built tx
  */
-function buildSendToContractTransaction(keyPair, contractAddress, encodedData, gasLimit, fee, utxoList) {
+function buildSendToContractTransaction(keyPair, contractAddress, encodedData, gasLimit, gasPrice, fee, utxoList) {
     var from = keyPair.getAddress()
     var amount = 0
-    var gasPrice = 1250 //satoshi TODO: use oracle
     fee = new BigNumber(gasLimit).times(gasPrice).div(1e8).add(fee).toNumber()
     var inputs = selectTxs(utxoList, amount, fee)
     var tx = new bitcoinjs.TransactionBuilder(keyPair.network)
